@@ -1,10 +1,11 @@
-﻿using System;
-namespace SqlSaturday.ViewModels
+﻿namespace SqlSaturday.ViewModels
 {
     public class SponsorsViewModel
+        : BaseViewModel
     {
         public SponsorsViewModel()
         {
+            Title = "Sponsors";
         }
     }
 }

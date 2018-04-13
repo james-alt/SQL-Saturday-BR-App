@@ -1,4 +1,4 @@
-﻿namespace SqlSaturday
+﻿namespace SqlSaturday.ViewModels
 {
     public class HomeViewModel
         : BaseViewModel
