@@ -15,6 +15,8 @@ namespace SqlSaturday.Views
         {
             InitializeComponent();
 
+            NavigationPage.SetHasNavigationBar(this, false);
+
             BindingContext = viewModel = new SponsorsViewModel();
         }
     }
