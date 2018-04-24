@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlSaturday.Droid", "Droid\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlSaturday.Core", "SqlSaturday.Core\SqlSaturday.Core.csproj", "{337B92E1-6448-44CC-9A31-8D16B2BB65DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlSaturday.Infrastructure.Mock", "SqlSaturday.Infrastructure.Mock\SqlSaturday.Infrastructure.Mock.csproj", "{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -55,5 +57,17 @@ Global
 		{337B92E1-6448-44CC-9A31-8D16B2BB65DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{337B92E1-6448-44CC-9A31-8D16B2BB65DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{337B92E1-6448-44CC-9A31-8D16B2BB65DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}.Release|iPhone.Build.0 = Release|Any CPU
+		{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -154,6 +154,16 @@
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SqlSaturday.Core\SqlSaturday.Core.csproj">
+      <Project>{337B92E1-6448-44CC-9A31-8D16B2BB65DB}</Project>
+      <Name>SqlSaturday.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlSaturday.Infrastructure.Mock\SqlSaturday.Infrastructure.Mock.csproj">
+      <Project>{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}</Project>
+      <Name>SqlSaturday.Infrastructure.Mock</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="..\SqlSaturday\SqlSaturday.projitems" Label="Shared" Condition="Exists('..\SqlSaturday\SqlSaturday.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.1.444934\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.1.444934\build\netstandard1.0\Xamarin.Forms.targets')" />

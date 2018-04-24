@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Xamarin.Forms;
+using SqlSaturday.Infrastructure.Mock.Repositories;
 
 namespace SqlSaturday
 {
@@ -9,6 +10,7 @@ namespace SqlSaturday
         public App()
         {
             InitializeComponent();
+            RegisterDependencies();
 
             if (Device.RuntimePlatform == Device.iOS)
             {
@@ -18,6 +20,11 @@ namespace SqlSaturday
             {
                 MainPage = new NavigationPage(new MainPage());
             }
+        }
+
+        private void RegisterDependencies()
+        {
+            DependencyService.Register<SpeakerRepository>();
         }
     }
 }
