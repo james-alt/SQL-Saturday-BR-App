@@ -30,11 +30,21 @@
                 Grid.Row="2" Grid.Column="0"
                 Margin="10">
                 <Label Text="Bookmarked Sessions" />
+                <ActivityIndicator 
+                    Margin="15"
+                    IsVisible="{Binding IsBusy}" 
+                    IsRunning="{Binding IsBusy}"/>
             </StackLayout>
             <StackLayout
                 Grid.Row="3" Grid.Column="0"
                 Margin="10">
-                <Label Text="Social?" />
+                <Label Text="Follow Along on Twitter" />
+                <Label Text="Tweet using hashtag #SqlSatBR"
+                       FontSize="12"/>
+                <ActivityIndicator 
+                    Margin="15"
+                    IsVisible="{Binding IsBusy}" 
+                    IsRunning="{Binding IsBusy}"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
