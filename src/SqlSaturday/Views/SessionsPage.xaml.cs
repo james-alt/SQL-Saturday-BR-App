@@ -17,5 +17,15 @@ namespace SqlSaturday.Views
 
             BindingContext = viewModel = new SessionsViewModel();
         }
-    }
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+
+            if(viewModel.Sessions.Count == 0)
+            {
+                viewModel.LoadSessionsCommand.Execute(null);
+            }
+		}
+	}
 }
