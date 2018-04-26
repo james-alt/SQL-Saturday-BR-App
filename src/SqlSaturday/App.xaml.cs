@@ -25,6 +25,7 @@ namespace SqlSaturday
         private void RegisterDependencies()
         {
             DependencyService.Register<SpeakerRepository>();
+            DependencyService.Register<SponsorRepository>();
         }
     }
 }

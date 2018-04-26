@@ -5,10 +5,24 @@
     x:Class="SqlSaturday.Views.SponsorsPage"
     Title="{Binding Title}">
     <ContentPage.Content>
-        <StackLayout
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="CenterAndExpand">
-            <Label Text="{Binding Title}"/>
-        </StackLayout>
+        <ListView
+            x:Name="sponsorsListView"
+            ItemsSource="{Binding Sponsors}"
+            HasUnevenRows="true"
+            RefreshCommand="{Binding LoadSponsorsCommand}"
+            IsPullToRefreshEnabled="true"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+            CachingStrategy="RecycleElement">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" Spacing="10">
+                            <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16"/>
+                            <Label Text="{Binding Website}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

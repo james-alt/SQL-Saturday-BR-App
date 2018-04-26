@@ -3,6 +3,7 @@ using SqlSaturday.Core.Entities;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace SqlSaturday.Infrastructure.Mock.Repositories
 {
@@ -40,17 +41,20 @@ namespace SqlSaturday.Infrastructure.Mock.Repositories
             {
                 new Speaker 
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "James Alt",
                     Description = "Beautiful Bald Bastard",
                     Twitter = "jimmyalt",
                 },
                 new Speaker
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "Isral Duke",
                     Description = "Something Punny"
                 },
                 new Speaker
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Name = "William Assaf",
                     Description = "A Member of the League of Beautiful Bald Bastards"
                 }
