@@ -10,6 +10,7 @@ namespace SqlSaturday
         private Page sessionsPage;
         private Page speakersPage;
         private Page sponsorsPage;
+        private Page aboutPage;
 
         public MainPage()
         {            
@@ -27,6 +28,7 @@ namespace SqlSaturday
             Children.Add(sessionsPage);
             Children.Add(speakersPage);
             Children.Add(sponsorsPage);
+            Children.Add(aboutPage);
 
             Title = Children[0].Title;
         }
@@ -53,10 +55,16 @@ namespace SqlSaturday
                 Title = "Sponsors"
             };
 
+            aboutPage = new NavigationPage(new AboutPage())
+            {
+                Title = "About"
+            };
+
             homePage.Icon = "tab_feed.png";
             sessionsPage.Icon = "tab_feed.png";
             speakersPage.Icon = "tab_feed.png";
             sponsorsPage.Icon = "tab_feed.png";
+            aboutPage.Icon = "tab_page.png";
         }
 
         private void InitializeDefault()
@@ -79,6 +87,10 @@ namespace SqlSaturday
             sponsorsPage = new SponsorsPage
             {
                 Title = "Sponsors"
+            };
+            aboutPage = new AboutPage
+            {
+                Title = "About"
             };
         }
 
