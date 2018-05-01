@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 using System;
 using System.Diagnostics;
+using System.Linq;
 using SqlSaturday.Core.Interfaces;
 
 namespace SqlSaturday.ViewModels
@@ -21,6 +22,7 @@ namespace SqlSaturday.ViewModels
         {
             Title = "Sponsors";
             Sponsors = new ObservableCollection<Sponsor>();
+
             LoadSponsorsCommand = new Command(
                 async () => await ExecuteLoadSponsorsCommand());
         }

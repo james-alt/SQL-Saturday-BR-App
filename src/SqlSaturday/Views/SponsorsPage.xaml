@@ -18,7 +18,7 @@
                     <ViewCell>
                         <StackLayout Padding="10" Spacing="10">
                             <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16"/>
-                            <Label Text="{Binding Website}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13"/>
+                            <Label Text="{Binding SponsorLevel.Label}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

@@ -45,9 +45,41 @@ namespace SqlSaturday.Infrastructure.Mock.Repositories
                     Id = Guid.NewGuid().ToString(),
                     Name = $"Sponsor {i}",
                     Website = "https://www.google.com",
-                    ImageUrl = "https://www.google.com"
+                    ImageUrl = "https://www.google.com",
+                    SponsorLevel = GenerateSponsorLevel(i)
                 });
             }
+        }
+
+        private SponsorLevel GenerateSponsorLevel(int seed)
+        {
+            var number = seed % 5;
+
+            var sponsorLevel = new SponsorLevel
+            {
+                Id = number
+            };
+
+            switch(number)
+            {
+                case 0:
+                    sponsorLevel.Label = "Platinum";
+                    break;
+                case 1:
+                    sponsorLevel.Label = "Gold";
+                    break;
+                case 2:
+                    sponsorLevel.Label = "Silver";
+                    break;
+                case 3:
+                    sponsorLevel.Label = "Bronze";
+                    break;
+                case 4:
+                    sponsorLevel.Label = "Education";
+                    break;
+            }
+
+            return sponsorLevel;
         }
     }
 }
