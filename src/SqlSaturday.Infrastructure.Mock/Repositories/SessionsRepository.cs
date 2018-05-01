@@ -50,7 +50,7 @@ namespace SqlSaturday.Infrastructure.Mock.Repositories
                 {
                     Id = Guid.NewGuid().ToString(),
                     Title = $"Session {i}",
-                    SessionTime = tempDate
+                    SessionStartTime = tempDate
                 });
             }
         }

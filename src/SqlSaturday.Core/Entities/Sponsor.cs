@@ -9,5 +9,6 @@ namespace SqlSaturday.Core.Entities
         public string Name { get; set; }
         public string Website { get; set; }
         public string ImageUrl { get; set; }
+        public SponsorLevel SponsorLevel { get; set; }
     }
 }

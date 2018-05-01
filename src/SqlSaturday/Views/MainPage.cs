@@ -64,7 +64,7 @@ namespace SqlSaturday
             sessionsPage.Icon = "tab_feed.png";
             speakersPage.Icon = "tab_feed.png";
             sponsorsPage.Icon = "tab_feed.png";
-            aboutPage.Icon = "tab_page.png";
+            aboutPage.Icon = "tab_feed.png";
         }
 
         private void InitializeDefault()
