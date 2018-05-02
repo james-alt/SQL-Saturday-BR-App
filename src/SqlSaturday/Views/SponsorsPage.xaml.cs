@@ -15,9 +15,17 @@ namespace SqlSaturday.Views
         {
             InitializeComponent();
 
-            NavigationPage.SetHasNavigationBar(this, false);
-
             BindingContext = viewModel = new SponsorsViewModel();
         }
-    }
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+
+            if(viewModel.GroupedSponsors.Count == 0)
+            {
+                viewModel.LoadSponsorsCommand.Execute(null);
+            }
+		}
+	}
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using SqlSaturday.ViewModels;
 
 namespace SqlSaturday.Views
@@ -9,15 +6,23 @@ namespace SqlSaturday.Views
     public partial class SpeakersPage 
         : ContentPage
     {
-        private SpeakersViewModel speakersViewModel;
+        private SpeakersViewModel viewModel;
 
         public SpeakersPage()
         {
             InitializeComponent();
 
-            NavigationPage.SetHasNavigationBar(this, false);
-
-            BindingContext = speakersViewModel = new SpeakersViewModel();
+            BindingContext = viewModel = new SpeakersViewModel();
         }
-    }
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+
+            if(viewModel.Speakers.Count == 0)
+            {
+                viewModel.LoadSpeakersCommand.Execute(null);
+            }
+		}
+	}
 }

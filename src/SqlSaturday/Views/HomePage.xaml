@@ -5,10 +5,47 @@
     x:Class="SqlSaturday.Views.HomePage"
     Title="{Binding Title}">
     <ContentPage.Content>
-        <StackLayout
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="CenterAndExpand">
-            <Label Text="{Binding Title}"/>
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout
+                BackgroundColor="#FFFBBC"
+                Grid.Row="0" Grid.Column="0">
+            </StackLayout>
+            <StackLayout
+                Grid.Row="1" Grid.Column="0"
+                Orientation="Horizontal"
+                Margin="10">
+                <Label Text="August 11th, 8:00am-5:00pm" VerticalOptions="Center"/>
+                <Button Text="Add to Cal" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            <StackLayout
+                Grid.Row="2" Grid.Column="0"
+                Margin="10">
+                <Label Text="Bookmarked Sessions" />
+                <ActivityIndicator 
+                    Margin="15"
+                    IsVisible="{Binding IsBusy}" 
+                    IsRunning="{Binding IsBusy}"/>
+            </StackLayout>
+            <StackLayout
+                Grid.Row="3" Grid.Column="0"
+                Margin="10">
+                <Label Text="Follow Along on Twitter" />
+                <Label Text="Tweet using hashtag #SqlSatBR"
+                       FontSize="12"/>
+                <ActivityIndicator 
+                    Margin="15"
+                    IsVisible="{Binding IsBusy}" 
+                    IsRunning="{Binding IsBusy}"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
