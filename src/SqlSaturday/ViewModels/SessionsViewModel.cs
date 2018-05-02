@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using MvvmHelpers;
 using SqlSaturday.Core.Entities;
 using SqlSaturday.Core.Interfaces;
 using Xamarin.Forms;

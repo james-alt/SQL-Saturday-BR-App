@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System;
 using System.Diagnostics;
 using SqlSaturday.Core.Interfaces;
+using MvvmHelpers;
 
 namespace SqlSaturday.ViewModels
 {
