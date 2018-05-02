@@ -16,14 +16,12 @@ namespace SqlSaturday.ViewModels
         private IRepository<Sponsor, string> repository =>
             DependencyService.Get<IRepository<Sponsor, string>>();
 
-        public ObservableRangeCollection<Sponsor> Sponsors { get; set; }
         public ObservableRangeCollection<Grouping<string, Sponsor>> GroupedSponsors { get; set; }
         public Command LoadSponsorsCommand { get; private set; }
 
         public SponsorsViewModel()
         {
             Title = "Sponsors";
-            Sponsors = new ObservableRangeCollection<Sponsor>();
             GroupedSponsors = new ObservableRangeCollection<Grouping<string, Sponsor>>();
 
             LoadSponsorsCommand = new Command(
@@ -41,11 +39,8 @@ namespace SqlSaturday.ViewModels
 
             try
             {
-                Sponsors.Clear();
                 GroupedSponsors.Clear();
                 var sponsors = await repository.List();
-
-                Sponsors.AddRange(sponsors);
 
                 var sorted = from sponsor in sponsors
                              orderby sponsor.Name
