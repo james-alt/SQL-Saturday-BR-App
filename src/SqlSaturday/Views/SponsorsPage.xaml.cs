@@ -22,7 +22,7 @@ namespace SqlSaturday.Views
 		{
 			base.OnAppearing();
 
-            if(viewModel.Sponsors.Count == 0)
+            if(viewModel.GroupedSponsors.Count == 0)
             {
                 viewModel.LoadSponsorsCommand.Execute(null);
             }

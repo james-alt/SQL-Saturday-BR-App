@@ -22,7 +22,7 @@ namespace SqlSaturday.Views
 		{
 			base.OnAppearing();
 
-            if(viewModel.Sessions.Count == 0)
+            if(viewModel.GroupedSessions.Count == 0)
             {
                 viewModel.LoadSessionsCommand.Execute(null);
             }
