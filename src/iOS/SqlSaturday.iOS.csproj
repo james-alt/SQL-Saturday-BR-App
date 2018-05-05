@@ -166,6 +166,10 @@
       <Project>{39C904CC-028E-4AAC-9A2A-7A199F9CB14A}</Project>
       <Name>SqlSaturday.Infrastructure.Mock</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SqlSaturday.Infrastructure.Xml\SqlSaturday.Infrastructure.Xml.csproj">
+      <Project>{675C0EF8-A287-4EB3-9772-2BA7D2200231}</Project>
+      <Name>SqlSaturday.Infrastructure.Xml</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\SqlSaturday\SqlSaturday.projitems" Label="Shared" Condition="Exists('..\SqlSaturday\SqlSaturday.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
