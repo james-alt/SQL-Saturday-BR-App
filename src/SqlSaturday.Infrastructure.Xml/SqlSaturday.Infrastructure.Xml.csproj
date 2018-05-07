@@ -8,6 +8,7 @@
     <Folder Include="Repositories\" />
     <Folder Include="Services\" />
     <Folder Include="Models\" />
+    <Folder Include="Mappers\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SqlSaturday.Core\SqlSaturday.Core.csproj" />

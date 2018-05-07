@@ -23,11 +23,15 @@ namespace SqlSaturday.Infrastructure.Xml.Repositories
 
         public async Task<IEnumerable<Session>> List()
         {
-            await InitializeRepository();
+            //await InitializeRepository();
 
-            var conference = await XmlDataService.Instance.GetConference();
+            //var items = await XmlDataService.Instance.GetSessions();
 
-            return sessions;
+            //return sessions;
+
+            var items = await XmlDataService.Instance.GetSessions();
+
+            return items;
         }
 
         private async Task InitializeRepository()
