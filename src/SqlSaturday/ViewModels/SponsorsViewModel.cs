@@ -43,7 +43,7 @@ namespace SqlSaturday.ViewModels
                 var sponsors = await repository.List();
 
                 var sorted = from sponsor in sponsors
-                             orderby sponsor.Name
+                             orderby sponsor.SponsorLevel.Id, sponsor.Name
                              group sponsor by sponsor.SponsorLevel.Label into sponsorGroup
                              select new Grouping<string, Sponsor>(sponsorGroup.Key, sponsorGroup);
 

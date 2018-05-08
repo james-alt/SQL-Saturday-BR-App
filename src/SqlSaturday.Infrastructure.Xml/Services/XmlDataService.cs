@@ -30,26 +30,36 @@ namespace SqlSaturday.Infrastructure.Xml.Services
 
         public async Task<IEnumerable<Session>> GetSessions(bool forceRefresh = false)
         {
-            if(ShouldRefresh(forceRefresh))
-            {
-                guidebook = await GetGuidebookFromXmlService();
-            }
+			await LoadGuidebook(forceRefresh);
 
             return SessionMapper.MapSessionsFromGuidebook(guidebook);
         }
+
+        public async Task<IEnumerable<Sponsor>> GetSponsors(bool forceRefresh = false)
+		{
+			await LoadGuidebook(forceRefresh);
+
+			return SponsorMapper.MapSponsorsFromGuidebook(guidebook);
+		}
+
+		private async Task LoadGuidebook(bool forceRefresh)
+		{
+			if(ShouldRefresh(forceRefresh))
+			{
+				await LoadGuidebookFromXmlService();
+			}
+		}
 
         private bool ShouldRefresh(bool forceRefresh)
         {
             return guidebook == null || forceRefresh == true;
         }
 
-        private async Task<GuidebookDto> GetGuidebookFromXmlService()
+        private async Task LoadGuidebookFromXmlService()
         {
             var streamData = await GetConferenceDataStream();
             var serializer = new XmlSerializer(typeof(GuidebookDto));
-            var guidebook = (GuidebookDto)serializer.Deserialize(streamData);
-
-            return guidebook;
+            guidebook = (GuidebookDto)serializer.Deserialize(streamData);            
         }
 
         private async Task<Stream> GetConferenceDataStream()

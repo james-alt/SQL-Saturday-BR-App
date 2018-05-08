@@ -5,7 +5,7 @@ using SqlSaturday.Infrastructure.Xml.Models;
 using System.Linq;
 namespace SqlSaturday.Infrastructure.Xml.Mappers
 {
-    public static class SessionMapper
+	public static class SessionMapper
     {
         public static IEnumerable<Session> MapSessionsFromGuidebook(GuidebookDto guidebook)
         {
