@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Collections.Generic;
 using SqlSaturday.Core.Entities;
 using SqlSaturday.Core.Interfaces;
@@ -8,14 +7,12 @@ using SqlSaturday.Infrastructure.Xml.Services;
 
 namespace SqlSaturday.Infrastructure.Xml.Repositories
 {
-    public class SessionsRepository
+	public class SessionsRepository
         : IRepository<Session, string>
     {
-        private List<Session> sessions;
-
         public async Task<Session> GetById(string id)
         {
-            await InitializeRepository();
+			var sessions = await XmlDataService.Instance.GetSessions();
 
             return sessions.FirstOrDefault(
                 p => p.Id == id);
@@ -23,43 +20,9 @@ namespace SqlSaturday.Infrastructure.Xml.Repositories
 
         public async Task<IEnumerable<Session>> List()
         {
-            //await InitializeRepository();
+			var sessions = await XmlDataService.Instance.GetSessions();
 
-            //var items = await XmlDataService.Instance.GetSessions();
-
-            //return sessions;
-
-            var items = await XmlDataService.Instance.GetSessions();
-
-            return items;
-        }
-
-        private async Task InitializeRepository()
-        {
-            if(sessions != null)
-            {
-                return;
-            }
-
-            await Task.Delay(1000);
-
-            sessions = new List<Session>();
-            var tempDate = DateTime.Parse("08/11/2018 08:00:00");
-
-            for (var i = 0; i < 40; i++)
-            {
-                if(i%6 == 0)
-                {
-                    tempDate = tempDate.AddHours(1);
-                }
-
-                sessions.Add(new Session
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    Title = $"Session {i}",
-                    SessionStartTime = tempDate
-                });
-            }
-        }
+			return sessions;
+        }               
     }
 }
