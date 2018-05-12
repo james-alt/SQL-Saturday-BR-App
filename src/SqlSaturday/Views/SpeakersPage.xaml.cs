@@ -19,7 +19,7 @@ namespace SqlSaturday.Views
 		{
 			base.OnAppearing();
 
-            if(viewModel.Speakers.Count == 0)
+            if(viewModel.GroupedSpeakers.Count == 0)
             {
                 viewModel.LoadSpeakersCommand.Execute(null);
             }
