@@ -4,17 +4,16 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using SqlSaturday.Infrastructure.Xml.Services;
 
 namespace SqlSaturday.Infrastructure.Xml.Repositories
 {
     public class SpeakerRepository
         : IRepository<Speaker, string>
     {
-        private List<Speaker> speakers;
-
         public async Task<Speaker> GetById(string id)
         {
-            await InitializeRepository();
+			var speakers = await XmlDataService.Instance.GetSpeakers();
 
             return speakers
                 .FirstOrDefault(
@@ -23,42 +22,9 @@ namespace SqlSaturday.Infrastructure.Xml.Repositories
 
         public async Task<IEnumerable<Speaker>> List()
         {
-            await InitializeRepository();
+			var speakers = await XmlDataService.Instance.GetSpeakers();
 
             return speakers;
-        }
-
-        private async Task InitializeRepository()
-        {
-            if(speakers != null)
-            {
-                return;
-            }
-
-            await Task.Delay(2000);
-
-            speakers = new List<Speaker>
-            {
-                new Speaker 
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    Name = "James Alt",
-                    Description = "Beautiful Bald Bastard",
-                    Twitter = "jimmyalt",
-                },
-                new Speaker
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    Name = "Isral Duke",
-                    Description = "Something Punny"
-                },
-                new Speaker
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    Name = "William Assaf",
-                    Description = "A Member of the League of Beautiful Bald Bastards"
-                }
-            };
-        }
+        }      
     }
 }

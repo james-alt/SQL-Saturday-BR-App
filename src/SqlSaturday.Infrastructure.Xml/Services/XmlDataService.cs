@@ -42,6 +42,13 @@ namespace SqlSaturday.Infrastructure.Xml.Services
 			return SponsorMapper.MapSponsorsFromGuidebook(guidebook);
 		}
 
+        public async Task<IEnumerable<Speaker>> GetSpeakers(bool forceRefresh = false)
+		{
+			await LoadGuidebook(forceRefresh);
+
+			return SpeakerMapper.MapSpeakersFromGuidebook(guidebook);
+		}
+
 		private async Task LoadGuidebook(bool forceRefresh)
 		{
 			if(ShouldRefresh(forceRefresh))

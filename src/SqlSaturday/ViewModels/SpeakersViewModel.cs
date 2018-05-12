@@ -1,27 +1,29 @@
-﻿using System.Collections.ObjectModel;
-using SqlSaturday.Core.Entities;
+﻿using SqlSaturday.Core.Entities;
 using Xamarin.Forms;
 using System.Threading.Tasks;
 using System;
 using System.Diagnostics;
+using System.Linq;
 using SqlSaturday.Core.Interfaces;
 using MvvmHelpers;
 
 namespace SqlSaturday.ViewModels
 {
-    public class SpeakersViewModel
+	public class SpeakersViewModel
         : BaseViewModel
     {
         private IRepository<Speaker, string> repository =>
             DependencyService.Get<IRepository<Speaker, string>>();
 
-        public ObservableCollection<Speaker> Speakers { get; set; }
+		public ObservableRangeCollection<Grouping<string, Speaker>> GroupedSpeakers { get; set; }
         public Command LoadSpeakersCommand { get; private set; }
 
         public SpeakersViewModel()
         {
             Title = "Speakers";
-            Speakers = new ObservableCollection<Speaker>();
+
+			GroupedSpeakers = new ObservableRangeCollection<Grouping<string, Speaker>>();
+
             LoadSpeakersCommand = new Command(
                 async () => await ExecuteLoadSpeakersCommand());
         }
@@ -37,13 +39,15 @@ namespace SqlSaturday.ViewModels
 
             try
             {
-                Speakers.Clear();
+                GroupedSpeakers.Clear();
                 var speakers = await repository.List();
 
-                foreach(var speaker in speakers)
-                {
-                    Speakers.Add(speaker);
-                }
+				var sorted = from speaker in speakers
+							 orderby speaker.LastName
+							 group speaker by speaker.NameKey into speakerGroup
+							 select new Grouping<string, Speaker>(speakerGroup.Key, speakerGroup);
+
+				GroupedSpeakers.AddRange(sorted);
             }
             catch (Exception ex)
             {
