@@ -7,6 +7,7 @@ namespace SqlSaturday
         : TabbedPage
     {
         private Page homePage;
+        private Page tracksPage;
         private Page sessionsPage;
         private Page speakersPage;
         private Page sponsorsPage;
@@ -25,7 +26,8 @@ namespace SqlSaturday
             }
 
             Children.Add(homePage);
-            Children.Add(sessionsPage);
+            Children.Add(tracksPage);
+            //Children.Add(sessionsPage);
             Children.Add(speakersPage);
             Children.Add(sponsorsPage);
             Children.Add(aboutPage);
@@ -40,7 +42,12 @@ namespace SqlSaturday
                 Title = "Home"
             };
 
-            sessionsPage = new NavigationPage(new SessionsPage())
+            //sessionsPage = new NavigationPage(new SessionsPage())
+            //{
+            //    Title = "Sessions"
+            //};
+
+            tracksPage = new NavigationPage(new TracksPage())
             {
                 Title = "Sessions"
             };
@@ -61,7 +68,7 @@ namespace SqlSaturday
             };
 
             homePage.Icon = "tab_feed.png";
-            sessionsPage.Icon = "tab_feed.png";
+            tracksPage.Icon = "tab_feed.png";
             speakersPage.Icon = "tab_feed.png";
             sponsorsPage.Icon = "tab_feed.png";
             aboutPage.Icon = "tab_feed.png";
@@ -74,7 +81,12 @@ namespace SqlSaturday
                 Title = "Home"
             };
 
-            sessionsPage = new SessionsPage
+            //sessionsPage = new SessionsPage
+            //{
+            //    Title = "Sessions"
+            //};
+
+            tracksPage = new TracksPage
             {
                 Title = "Sessions"
             };

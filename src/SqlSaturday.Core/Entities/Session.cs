@@ -20,7 +20,7 @@ namespace SqlSaturday.Core.Entities
         {
             get 
             {
-                return SessionStartTime.ToShortTimeString();
+                return $"{SessionStartTime.ToShortTimeString()} - {SessionEndTime.ToShortTimeString()}";
             }
         }
     }

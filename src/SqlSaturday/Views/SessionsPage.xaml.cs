@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using SqlSaturday.ViewModels;
+using SqlSaturday.Core.Entities;
 
 namespace SqlSaturday.Views
 {
@@ -11,11 +9,12 @@ namespace SqlSaturday.Views
     {
         private SessionsViewModel viewModel;
 
-        public SessionsPage()
+        public SessionsPage(Track track)
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new SessionsViewModel();
+            BindingContext = viewModel = new SessionsViewModel(
+                track);
         }
 
 		protected override void OnAppearing()
