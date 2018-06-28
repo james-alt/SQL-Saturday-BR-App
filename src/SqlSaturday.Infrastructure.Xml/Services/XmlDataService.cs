@@ -35,6 +35,13 @@ namespace SqlSaturday.Infrastructure.Xml.Services
             return SessionMapper.MapSessionsFromGuidebook(guidebook);
         }
 
+        public async Task<IEnumerable<Track>> GetTracks(bool forceRefresh = false)
+        {
+            await LoadGuidebook(forceRefresh);
+
+            return TrackMapper.MapTracksFromGuidebook(guidebook);
+        }
+
         public async Task<IEnumerable<Sponsor>> GetSponsors(bool forceRefresh = false)
 		{
 			await LoadGuidebook(forceRefresh);
@@ -71,7 +78,7 @@ namespace SqlSaturday.Infrastructure.Xml.Services
 
         private async Task<Stream> GetConferenceDataStream()
         {
-            var conferenceUrl = "https://www.sqlsaturday.com/eventxml.aspx?sat=628";
+            var conferenceUrl = "https://www.sqlsaturday.com/eventxml.aspx?sat=749";
             using (var httpClient = new HttpClient())
             {
                 var response = await httpClient

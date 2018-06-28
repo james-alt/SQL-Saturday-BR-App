@@ -27,6 +27,7 @@ namespace SqlSaturday
             DependencyService.Register<SpeakerRepository>();
             DependencyService.Register<SponsorRepository>();
             DependencyService.Register<SessionsRepository>();
+            DependencyService.Register<TracksRepository>();
         }
     }
 }

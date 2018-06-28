@@ -9,7 +9,7 @@ using MvvmHelpers;
 
 namespace SqlSaturday.ViewModels
 {
-	public class SpeakersViewModel
+    public class SpeakersViewModel
         : BaseViewModel
     {
         private IRepository<Speaker, string> repository =>

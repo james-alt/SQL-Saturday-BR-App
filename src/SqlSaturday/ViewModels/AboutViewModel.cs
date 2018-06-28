@@ -1,5 +1,4 @@
-﻿using System;
-using MvvmHelpers;
+﻿using MvvmHelpers;
 
 namespace SqlSaturday.ViewModels
 {
