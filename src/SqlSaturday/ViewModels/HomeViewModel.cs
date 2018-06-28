@@ -2,12 +2,12 @@
 
 namespace SqlSaturday.ViewModels
 {
-    public class AboutViewModel
+    public class HomeViewModel
         : BaseViewModel
     {
-        public AboutViewModel()
+        public HomeViewModel()
         {
-            Title = "About";
+            Title = "Home";
         }
     }
 }

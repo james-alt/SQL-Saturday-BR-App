@@ -1,47 +1,109 @@
-﻿using System;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
+using SqlSaturday.Views;
 
 namespace SqlSaturday
 {
-    public class MainPage : TabbedPage
+    public class MainPage 
+        : TabbedPage
     {
-        public MainPage()
-        {
-            Page itemsPage, aboutPage = null;
+        private Page homePage;
+        private Page tracksPage;
+        private Page sessionsPage;
+        private Page speakersPage;
+        private Page sponsorsPage;
+        private Page aboutPage;
 
-            switch (Device.RuntimePlatform)
+        public MainPage()
+        {            
+            switch(Device.RuntimePlatform)
             {
                 case Device.iOS:
-                    itemsPage = new NavigationPage(new ItemsPage())
-                    {
-                        Title = "Browse"
-                    };
-
-                    aboutPage = new NavigationPage(new AboutPage())
-                    {
-                        Title = "About"
-                    };
-                    itemsPage.Icon = "tab_feed.png";
-                    aboutPage.Icon = "tab_about.png";
+                    InitializeIos();
                     break;
                 default:
-                    itemsPage = new ItemsPage()
-                    {
-                        Title = "Browse"
-                    };
-
-                    aboutPage = new AboutPage()
-                    {
-                        Title = "About"
-                    };
+                    InitializeDefault();
                     break;
             }
 
-            Children.Add(itemsPage);
+            Children.Add(homePage);
+            Children.Add(tracksPage);
+            //Children.Add(sessionsPage);
+            Children.Add(speakersPage);
+            Children.Add(sponsorsPage);
             Children.Add(aboutPage);
 
             Title = Children[0].Title;
+        }
+
+        private void InitializeIos()
+        {
+            homePage = new NavigationPage(new HomePage())
+            {
+                Title = "Home"
+            };
+
+            //sessionsPage = new NavigationPage(new SessionsPage())
+            //{
+            //    Title = "Sessions"
+            //};
+
+            tracksPage = new NavigationPage(new TracksPage())
+            {
+                Title = "Sessions"
+            };
+
+            speakersPage = new NavigationPage(new SpeakersPage())
+            {
+                Title = "Speakers"
+            };
+
+            sponsorsPage = new NavigationPage(new SponsorsPage())
+            {
+                Title = "Sponsors"
+            };
+
+            aboutPage = new NavigationPage(new AboutPage())
+            {
+                Title = "About"
+            };
+
+            homePage.Icon = "tab_feed.png";
+            tracksPage.Icon = "tab_feed.png";
+            speakersPage.Icon = "tab_feed.png";
+            sponsorsPage.Icon = "tab_feed.png";
+            aboutPage.Icon = "tab_feed.png";
+        }
+
+        private void InitializeDefault()
+        {
+            homePage = new HomePage
+            {
+                Title = "Home"
+            };
+
+            //sessionsPage = new SessionsPage
+            //{
+            //    Title = "Sessions"
+            //};
+
+            tracksPage = new TracksPage
+            {
+                Title = "Sessions"
+            };
+
+            speakersPage = new SpeakersPage
+            {
+                Title = "Speakers"
+            };
+
+            sponsorsPage = new SponsorsPage
+            {
+                Title = "Sponsors"
+            };
+            aboutPage = new AboutPage
+            {
+                Title = "About"
+            };
         }
 
         protected override void OnCurrentPageChanged()
