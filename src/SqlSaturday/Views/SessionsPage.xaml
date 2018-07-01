@@ -3,10 +3,12 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="SqlSaturday.Views.SessionsPage"
-    Title="{Binding Title}">
+    Title="{Binding Title}"
+    BackgroundColor="{StaticResource DarkBackgroundColor}">
     <ContentPage.Content>
         <ListView
             x:Name="sessionsListView"
+            BackgroundColor="{StaticResource DarkBackgroundColor}"
             ItemsSource="{Binding GroupedSessions}"
             IsGroupingEnabled="true"
             GroupDisplayBinding="{Binding Key}"

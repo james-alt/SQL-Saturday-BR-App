@@ -8,7 +8,6 @@ namespace SqlSaturday
     {
         private Page homePage;
         private Page tracksPage;
-        private Page sessionsPage;
         private Page speakersPage;
         private Page sponsorsPage;
         private Page aboutPage;
@@ -25,9 +24,13 @@ namespace SqlSaturday
                     break;
             }
 
+            BarBackgroundColor = 
+                (Color) Application.Current.Resources["DarkBackgroundColor"];
+            BarTextColor =
+                Color.White;
+
             Children.Add(homePage);
             Children.Add(tracksPage);
-            //Children.Add(sessionsPage);
             Children.Add(speakersPage);
             Children.Add(sponsorsPage);
             Children.Add(aboutPage);
@@ -41,11 +44,6 @@ namespace SqlSaturday
             {
                 Title = "Home"
             };
-
-            //sessionsPage = new NavigationPage(new SessionsPage())
-            //{
-            //    Title = "Sessions"
-            //};
 
             tracksPage = new NavigationPage(new TracksPage())
             {
@@ -80,11 +78,6 @@ namespace SqlSaturday
             {
                 Title = "Home"
             };
-
-            //sessionsPage = new SessionsPage
-            //{
-            //    Title = "Sessions"
-            //};
 
             tracksPage = new TracksPage
             {
