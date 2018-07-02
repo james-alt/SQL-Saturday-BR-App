@@ -7,6 +7,7 @@
             <Color x:Key="Accent">#96d1ff</Color>
             <Color x:Key="LightBackgroundColor">#FAFAFA</Color>
             <Color x:Key="DarkBackgroundColor">#282E33</Color>
+            <Color x:Key="CardDarkBackgroundColor">#3E4549</Color>
             <Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
             <Color x:Key="LightTextColor">#999999</Color>
             <Style TargetType="NavigationPage">

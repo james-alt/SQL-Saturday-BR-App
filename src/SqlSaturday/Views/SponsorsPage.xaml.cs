@@ -16,6 +16,8 @@ namespace SqlSaturday.Views
             InitializeComponent();
 
             BindingContext = viewModel = new SponsorsViewModel();
+
+            viewModel.LoadSponsorsCommand.Execute(null);
         }
 
 		protected override void OnAppearing()

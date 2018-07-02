@@ -5,6 +5,7 @@ using MvvmHelpers;
 using SqlSaturday.Core.Entities;
 using SqlSaturday.Core.Interfaces;
 using Xamarin.Forms;
+using SqlSaturday.Infrastructure.Xml.Repositories;
 
 namespace SqlSaturday.ViewModels
 {
@@ -21,6 +22,7 @@ namespace SqlSaturday.ViewModels
         {
             Title = "Sessions";
 
+            repository = new TracksRepository();
             Tracks = new ObservableRangeCollection<Track>();
 
             LoadTracksCommand = new Command(
@@ -39,6 +41,7 @@ namespace SqlSaturday.ViewModels
             try
             {
                 Tracks.Clear();
+
                 var tracks = await repository
                     .List();
 
