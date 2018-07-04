@@ -23,8 +23,11 @@
                     <ViewCell Height="25">
                         <StackLayout VerticalOptions="FillAndExpand"
                                Padding="5"
-                               BackgroundColor="#3498DB">
-                            <Label Text="{Binding Key}" TextColor="White" VerticalOptions="Center"/>
+                               BackgroundColor="{StaticResource DarkBackgroundColor}">
+                            <Label Text="{Binding Key}" 
+                                   TextColor="{StaticResource LightTextColor}" 
+                                   HorizontalOptions="End"
+                                   VerticalOptions="Center"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
@@ -48,7 +51,7 @@
                                     <Label Text="{Binding Title}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16"/>
                                     <Label Text="{Binding DisplayTime}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13"/>
                                     <Label Text="{Binding Room}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13"/>
-                                    <Label Text="Speaker Name" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13"/>
+                                    <Label Text="{Binding SpeakerNames}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13"/>
                                 </StackLayout>
                                 <Label 
                                     Text=">" 

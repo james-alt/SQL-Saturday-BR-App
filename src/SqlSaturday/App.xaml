@@ -9,7 +9,7 @@
             <Color x:Key="DarkBackgroundColor">#282E33</Color>
             <Color x:Key="CardDarkBackgroundColor">#3E4549</Color>
             <Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
-            <Color x:Key="LightTextColor">#999999</Color>
+            <Color x:Key="LightTextColor">#FAFAFA</Color>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource DarkBackgroundColor}" />
                 <Setter Property="BarTextColor" Value="White" />

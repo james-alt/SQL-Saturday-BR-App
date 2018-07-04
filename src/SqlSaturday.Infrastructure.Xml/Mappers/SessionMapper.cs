@@ -15,7 +15,7 @@ namespace SqlSaturday.Infrastructure.Xml.Mappers
 			{
 				foreach (var item in guidebook.Events.Events.Where(t => t != null))
 				{
-					var session = MapSessionFromEventDto(item);
+					var session = MapSessionFromEventDto(item, guidebook);
 					sessions.Add(session);
 				}
 			}
@@ -23,7 +23,7 @@ namespace SqlSaturday.Infrastructure.Xml.Mappers
 			return sessions;
 		}
 
-		public static Session MapSessionFromEventDto(EventDto eventDto)
+		public static Session MapSessionFromEventDto(EventDto eventDto, GuidebookDto guidebook)
 		{
 			var session = new Session
 			{
@@ -36,7 +36,18 @@ namespace SqlSaturday.Infrastructure.Xml.Mappers
 				SessionEndTime = eventDto.EndTime
 			};
 
-			// ToDo: Need to Map Speakers
+            var speakers = new List<Speaker>();
+
+            foreach(var speakerDto in eventDto.Speakers.Speakers)
+            {
+                var speaker = SpeakerMapper
+                    .MapSpeakerFromSessionSpeakerDto(
+                        speakerDto, guidebook);
+
+                speakers.Add(speaker);
+            }
+
+            session.Speakers = speakers;
 
 			return session;
 		}
