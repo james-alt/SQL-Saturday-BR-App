@@ -2,17 +2,15 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="SqlSaturday.Views.SpeakerPage"
+    x:Class="SqlSaturday.Views.SessionPage"
     Title="{Binding Title}"
     BackgroundColor="{StaticResource DarkBackgroundColor}">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout
                 Padding="10">
-                <Label Text="{Binding Speaker.Name}"/>
-                <Label Text="Biography"/>
-                <Label Text="{Binding Speaker.Description}"/>
-                <Label Text="Sessions"/>
+                <Label Text="{Binding Session.Title}"/>
+                <Label Text="{Binding Session.Abstract}"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
