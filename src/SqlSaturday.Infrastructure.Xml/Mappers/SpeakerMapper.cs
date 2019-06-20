@@ -19,7 +19,20 @@ namespace SqlSaturday.Infrastructure.Xml.Mappers
                 }
             }
 
-            return speakers;
+            foreach(var speaker in speakers)
+            {
+                speaker.SpeakerIds = speakers
+                    .Where(p => p.Name == speaker.Name)
+                    .Select(p => p.Id)
+                    .ToList();
+            }
+
+            return speakers
+                .GroupBy(p => p.Name)
+                .Select(s => s.First())
+                .OrderBy(p => p.LastName)
+                .ThenBy(p => p.FirstName)
+                .ToList();
         }
 
         public static Speaker MapSpeakerFromSpeakerDto(SpeakerDto speakerDto)
@@ -32,10 +45,24 @@ namespace SqlSaturday.Infrastructure.Xml.Mappers
                 Twitter = speakerDto.Twitter,
                 LinkedIn = speakerDto.LinkedIn,
                 Website = speakerDto.ContactUrl,
-                ImageUrl = speakerDto.ImageUrl
+                ImageUrl = speakerDto.ImageUrl,
+                SpeakerIds = new List<string>()
             };
 
             return speaker;
+        }
+
+        public static Speaker MapSpeakerFromSessionSpeakerDto(SessionSpeakerDto sessionSpeakerDto, GuidebookDto guidebook)
+        {
+            var speakerDto = guidebook
+                .Speakers
+                .Speakers
+                .FirstOrDefault(p => p.ImportId == sessionSpeakerDto.Id);
+
+            if (speakerDto == null)
+                return null;
+
+            return MapSpeakerFromSpeakerDto(speakerDto);
         }
     }
 }

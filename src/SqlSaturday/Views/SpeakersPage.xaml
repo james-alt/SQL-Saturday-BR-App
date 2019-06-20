@@ -3,10 +3,12 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="SqlSaturday.Views.SpeakersPage"
-    Title="{Binding Title}">
+    Title="{Binding Title}"
+    BackgroundColor="{StaticResource DarkBackgroundColor}">
     <ContentPage.Content>
         <ListView
             x:Name="speakersListView"
+            BackgroundColor="{StaticResource DarkBackgroundColor}"
             ItemsSource="{Binding GroupedSpeakers}"
             IsGroupingEnabled="true"
             GroupDisplayBinding="{Binding Key}"
@@ -20,8 +22,11 @@
                     <ViewCell Height="25">
                         <StackLayout VerticalOptions="FillAndExpand"
                                Padding="5"
-                               BackgroundColor="#3498DB">
-                            <Label Text="{Binding Key}" TextColor="White" VerticalOptions="Center"/>
+                               BackgroundColor="{StaticResource DarkBackgroundColor}">
+                            <Label Text="{Binding Key}" 
+                                   TextColor="{StaticResource LightTextColor}" 
+                                   HorizontalOptions="End"
+                                   VerticalOptions="Center"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
@@ -29,9 +34,26 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10" Spacing="10">
-                            <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16"/>
-                            <Label Text="{Binding Id}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13"/>
+                        <StackLayout 
+                            BackgroundColor="#282E33" 
+                            Orientation="Vertical"
+                            Padding="5">
+                            <StackLayout
+                                BackgroundColor="#3E4549"
+                                Orientation="Horizontal"
+                                Padding="35, 20, 5, 20"
+                                Margin="25, 5, 5, 5">
+                                <StackLayout
+                                    Orientation="Vertical"
+                                    HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16"/>
+                                </StackLayout>
+                                <Label 
+                                    Text=">" 
+                                    HorizontalOptions="End"
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16"/>                                
+                            </StackLayout>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

@@ -25,6 +25,33 @@ namespace SqlSaturday.Views
             {
                 viewModel.LoadSessionsCommand.Execute(null);
             }
+
+            sessionsListView.ItemSelected += 
+                SessionsListViewItemSelected;
 		}
-	}
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            sessionsListView.ItemSelected -=
+                SessionsListViewItemSelected;
+        }
+
+        private async void SessionsListViewItemSelected(
+            object sender, 
+            SelectedItemChangedEventArgs e)
+        {
+            var session = sessionsListView.SelectedItem as Session;
+            if (session == null)
+                return;
+
+            var sessionPage = new SessionPage(session);
+            await Navigation.PushAsync(
+                sessionPage);
+
+            sessionsListView.SelectedItem = null;
+        }
+
+    }
 }

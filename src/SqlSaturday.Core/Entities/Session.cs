@@ -1,6 +1,7 @@
 ﻿using System;
 using SqlSaturday.Core.Shared;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SqlSaturday.Core.Entities
 {
@@ -21,6 +22,17 @@ namespace SqlSaturday.Core.Entities
             get 
             {
                 return $"{SessionStartTime.ToShortTimeString()} - {SessionEndTime.ToShortTimeString()}";
+            }
+        }
+
+        public string SpeakerNames 
+        {
+            get 
+            {
+                if (Speakers == null)
+                    return String.Empty;
+
+                return String.Join(", ", Speakers.Select(p => p.Name));
             }
         }
     }

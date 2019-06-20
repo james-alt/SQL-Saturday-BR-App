@@ -3,11 +3,14 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="SqlSaturday.Views.TracksPage"
-    Title="{Binding Title}">
+    Title="{Binding Title}"
+    BackgroundColor="{StaticResource DarkBackgroundColor}">
     <ContentPage.Content>
         <ListView
             x:Name="tracksListView"
+            BackgroundColor="#282E33"
             ItemsSource="{Binding Tracks}"
+            SeparatorVisibility="None"
             HasUnevenRows="true"
             RefreshCommand="{Binding LoadTracksCommand}"
             IsPullToRefreshEnabled="true"
@@ -16,8 +19,27 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10" Spacing="10">
-                            <Label Text="{Binding Title}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16"/>
+                        <StackLayout 
+                            BackgroundColor="{StaticResource DarkBackgroundColor}" 
+                            Orientation="Vertical"
+                            Padding="5">
+                            <StackLayout
+                                BackgroundColor="{StaticResource CardDarkBackgroundColor}"
+                                Orientation="Horizontal"
+                                Padding="35, 20, 5, 20"
+                                Margin="25, 5, 5, 5">
+                                <Label 
+                                    Text="{Binding Title}"
+                                    HorizontalOptions="StartAndExpand"
+                                    LineBreakMode="WordWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16"/>
+                                <Label 
+                                    Text=">" 
+                                    HorizontalOptions="End"
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16"/>
+                            </StackLayout>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

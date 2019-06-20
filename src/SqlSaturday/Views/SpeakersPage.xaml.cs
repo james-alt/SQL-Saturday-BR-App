@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using SqlSaturday.ViewModels;
+using SqlSaturday.Core.Entities;
 
 namespace SqlSaturday.Views
 {
@@ -23,6 +24,32 @@ namespace SqlSaturday.Views
             {
                 viewModel.LoadSpeakersCommand.Execute(null);
             }
+
+            speakersListView.ItemSelected +=
+                SpeakersListViewItemSelected;
 		}
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            speakersListView.ItemSelected -= 
+                SpeakersListViewItemSelected;
+        }
+
+        private async void SpeakersListViewItemSelected(
+            object sender, 
+            SelectedItemChangedEventArgs e)
+        {
+            var speaker = speakersListView.SelectedItem as Speaker;
+            if (speaker == null)
+                return;
+
+            var speakerPage = new SpeakerPage(speaker);
+            await Navigation.PushAsync(speakerPage);
+
+            speakersListView.SelectedItem = null;
+        }
+
 	}
 }

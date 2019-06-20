@@ -2,15 +2,15 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="SqlSaturday.Views.AboutPage"
+    x:Class="SqlSaturday.Views.SessionPage"
+    Title="{Binding Title}"
     BackgroundColor="{StaticResource DarkBackgroundColor}">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout
                 Padding="10">
-                <Label Text="GitHub Repo"/>
-                <Label Text="Contributors"/>
-                <Label Text="Packages"/>
+                <Label Text="{Binding Session.Title}"/>
+                <Label Text="{Binding Session.Abstract}"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

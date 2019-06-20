@@ -2,15 +2,17 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="SqlSaturday.Views.AboutPage"
+    x:Class="SqlSaturday.Views.SpeakerPage"
+    Title="{Binding Title}"
     BackgroundColor="{StaticResource DarkBackgroundColor}">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout
                 Padding="10">
-                <Label Text="GitHub Repo"/>
-                <Label Text="Contributors"/>
-                <Label Text="Packages"/>
+                <Label Text="{Binding Speaker.Name}"/>
+                <Label Text="Biography"/>
+                <Label Text="{Binding Speaker.Description}"/>
+                <Label Text="Sessions"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

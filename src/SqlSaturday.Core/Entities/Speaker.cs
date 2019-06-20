@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SqlSaturday.Core.Shared;
 
 namespace SqlSaturday.Core.Entities
@@ -12,6 +13,25 @@ namespace SqlSaturday.Core.Entities
         public string LinkedIn { get; set; }
         public string Website { get; set; }
         public string ImageUrl { get; set; }
+
+        public List<string> SpeakerIds { get; set; }
+
+        public string SpeakerIdString
+        {
+            get
+            {
+                return String.Join(", ", SpeakerIds);
+            }
+        }
+
+        public string FirstName
+        {
+            get
+            {
+                var nameItems = Name.Split(' ');
+                return nameItems[0];
+            }
+        }
 
         public string LastName
 		{
